@@ -1,20 +1,33 @@
-<div class="container">
-  <h1>Templates#index</h1>
+<div class="container" ng-controller="TodoListCtrl" ng-init="init()">
+  <h1>Todo リスト</h1>
 
-  <form class="form-horizontal">
-    <div class="form-group">
-      <%= label_tag :text, "テキスト", class: "col-md-3 control-label" %>
-      <div class="col-md-5">
-        <%= text_field_tag :text, "", "ng-model" => "text", class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= label_tag :tooltipText, "ツールチップのテキスト", class: "col-md-3 control-label" %>
-      <div class="col-md-5">
-        <%= text_field_tag :tooltipText, "", "ng-model" => "tooltipText", class: "form-control" %>
-      </div>
-    </div>
-  </form>
+  <div class="panel panel-success">
 
-  <a href="#" tooltip="{{tooltipText}}" class="control-label">{{text}}</a>
+    <div class="panel-heading">
+      <span>{{list.name}}</span>
+    </div>
+
+    <form id="new_todo">
+      <div class="input-group">
+        <input type="text" id="todoDescription" class="form-control input-lg" autofocus="autofocus" maxlength="255">
+        <button class="btn btn-success btn-lg" type="submit">追加</button>
+      </div>
+    </form>
+
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="todo in list.todos">
+        <div class="todo-completed">
+          <input type="checkbox">
+        </div>
+        <div class="todo-description">
+          <span>{{todo.description}}</span>
+        </div>
+        <div class="todo-buttons pull-right">
+          <button class="btn btn-danger btn-xs pull-right" type="button">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
