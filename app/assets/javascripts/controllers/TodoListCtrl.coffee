@@ -14,3 +14,14 @@ sampleApp.controller "TodoListCtrl", ($scope) ->
         { 'description' : 'todo description2'}
       ]
     }
+
+# todoを追加する
+  $scope.addTodo = (todoDescription) ->
+    # 新しいtodoを作成する
+    todo = { 'description' : todoDescription }
+
+    # initメソッドで用意したtodosの一番最初にtodoを追加する
+    $scope.list.todos.unshift(todo)
+
+    # Todo入力テキストフィールドを空にする
+    $scope.todoDescription = ""
