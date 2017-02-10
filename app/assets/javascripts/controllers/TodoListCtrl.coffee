@@ -25,3 +25,8 @@ sampleApp.controller "TodoListCtrl", ($scope) ->
 
     # Todo入力テキストフィールドを空にする
     $scope.todoDescription = ""
+
+# todoを削除する
+  $scope.deleteTodo = (todo) ->
+    # indexOfメソッドでtodoのindexを探し、spliceメソッドで削除する
+    $scope.list.todos.splice($scope.list.todos.indexOf(todo), 1)
