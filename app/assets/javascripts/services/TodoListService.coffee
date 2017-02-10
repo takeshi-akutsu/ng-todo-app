@@ -10,4 +10,4 @@ angular.module('sampleApp').factory 'TodoList', ($resource, $http) ->
       @service.get(id: id, ((list)->
         successHandler?(list)
         list),
-        @@errorHandler)
+        @errorHandler)
